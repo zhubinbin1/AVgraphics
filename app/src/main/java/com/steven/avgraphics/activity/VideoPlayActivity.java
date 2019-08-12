@@ -86,8 +86,14 @@ public class VideoPlayActivity extends BaseActivity {
     private void showAVInfo() {
         if (mAVInfo != null) {
             double fileSize = (double) mFile.length() / 1024 / 1024;
-            int index = String.valueOf(fileSize).lastIndexOf(".");
-            String fileSizeStr = String.valueOf(fileSize).substring(0, index + 3);
+            int index = String.valueOf(fileSize).lastIndexOf(".");// /ffrecord.mp4"
+            String fileSizeStr = "0.0";
+            try {
+                fileSizeStr = String.valueOf(fileSize).substring(0, index + 3);
+            } catch (Exception e) {
+                e.printStackTrace();
+                fileSizeStr = "0.0";
+            }
             String string = "[file path: " + mFile.getAbsolutePath() + "]\n[file size: "
                     + fileSizeStr + "M]\n" + mAVInfo.toString();
             Log.i(TAG, "video file info:\n" + string);
