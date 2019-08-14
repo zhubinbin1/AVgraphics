@@ -24,10 +24,10 @@ public class HWCodecActivity extends BaseActivity implements View.OnClickListene
 
     private static final int DEFAULT_BITRATE = 10 * 1000 * 1000;
 
-    private Button mBtnDecode;
-    private Button mBtnTranscode;
-    private Button mBtnStartRecord;
-    private Button mBtnStopRecord;
+    private Button mBtnDecode;//解码
+    private Button mBtnTranscode;//转码
+    private Button mBtnStartRecord;//开始录制
+    private Button mBtnStopRecord;//结束录制
 
     private HWRecorderWrapper mRecorder = new HWRecorderWrapper();
     private AudioRecorder mAudioRecorder = new AudioRecorder();

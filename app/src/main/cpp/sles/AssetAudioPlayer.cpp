@@ -9,6 +9,7 @@
 #include "AssetAudioPlayer.h"
 #include "log.h"
 
+//成员初始化列表
 AssetAudioPlayer::AssetAudioPlayer(AAsset *asset)
         : mAudioEngine(new AudioEngine()), mPlayerObj(nullptr), mPlayer(nullptr),
           mVolume(nullptr), mMuteSolo(nullptr), mSeek(nullptr) {

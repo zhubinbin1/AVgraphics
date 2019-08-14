@@ -48,6 +48,7 @@ public class HWRecorderWrapper {
     public void recordImage(byte[] image) {
         mVExecutor.execute(() -> {
             try {
+//              mImageFormat==  ImageFormat.NV21 | ImageFormat.YV12
                 convertToYuv420(image, mImageFormat);
                 mRecorder.recordImage(image);
             } catch (Exception e) {
@@ -64,7 +65,7 @@ public class HWRecorderWrapper {
             yv12ToYuv420p(data);
         }
     }
-
+//    NV21: YYYYYYYY VUVU     =>YUV420SP（NV12）：YYYYYYYY UVUV
     private void nv21ToYuv420sp(byte[] data) {
         int yLen = data.length * 2 / 3;
         for (int i = yLen; i < data.length - 1; i += 2) {
@@ -73,7 +74,7 @@ public class HWRecorderWrapper {
             data[i + 1] = tmp;
         }
     }
-
+//    YV12: YYYYYYYY VV UU    =>YUV420P（I420）：YYYYYYYY UU VV
     private void yv12ToYuv420p(byte[] data) {
         int yLen = data.length * 2 / 3;
         int vLen = yLen / 2;

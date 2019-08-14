@@ -137,7 +137,7 @@ public class OpenSLActivity extends BaseActivity implements View.OnClickListener
         _stopRecord();
     }
 
-    private static native void _startPlayMp3(AssetManager assetManager, String filename);
+    private static native boolean _startPlayMp3(AssetManager assetManager, String filename);
 
     private static native void _stopPlayMp3();
 

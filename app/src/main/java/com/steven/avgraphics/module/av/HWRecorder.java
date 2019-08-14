@@ -44,7 +44,7 @@ public class HWRecorder {
         }
 
         MediaFormat videoFormat = MediaFormat.createVideoFormat(HWCodec.MIME_TYPE_AVC, width, height);
-        videoFormat.setInteger(MediaFormat.KEY_BIT_RATE, bitRate);
+        videoFormat.setInteger(MediaFormat.KEY_BIT_RATE, bitRate);//10 * 1000 * 1000
         videoFormat.setInteger(MediaFormat.KEY_FRAME_RATE, DEFAULT_FRAME_RATE);
         videoFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, DEFAULT_IFRAME_INTERVAL);
         videoFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, colorFormat);
@@ -117,6 +117,7 @@ public class HWRecorder {
     @SuppressWarnings("WeakerAccess")
     public void recordSample(byte[] sample) throws Exception {
         long pts;
+        //打时间戳
         if (mAStartTime == -1) {
             mAStartTime = System.nanoTime();
             pts = 0;
