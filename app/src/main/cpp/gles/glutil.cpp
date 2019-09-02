@@ -81,11 +81,13 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
     // 检查编译状态
     GLint compiled;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-    if (!compiled) {
+    if (!compiled) {// 编译失败
         GLint infoLen = 0;
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
+        // 获取输出信息的长度
         if (infoLen > 1) {
             char *infoLog = (char *) malloc(sizeof(char) * infoLen);
+            // 获取输出信息并打印
             glGetShaderInfoLog(shader, infoLen, nullptr, infoLog);
             LOGE("load %s shader failed: \n%s", type == GL_VERTEX_SHADER ? "vertex" : "fragment",
                  infoLog);

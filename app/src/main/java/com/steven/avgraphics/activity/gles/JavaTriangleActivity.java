@@ -48,7 +48,7 @@ public class JavaTriangleActivity extends BaseActivity {
     private static FloatBuffer sVertices;
 
     private static final float COLORS[] = {
-            0.0f, 1.0f, 1.0f, 1.0f
+            0.0f, 0.8f, 0.1f, 0.2f
     };
 
     private static final int ATTRIB_COLOR = 0; // 对应 location = 0
@@ -135,6 +135,7 @@ public class JavaTriangleActivity extends BaseActivity {
             GLES30.glVertexAttribPointer(ATTRIB_POSITION, VERTEX_COUNT, GLES30.GL_FLOAT,
                     false, 0, sVertices);
             GLES30.glEnableVertexAttribArray(ATTRIB_POSITION);
+//            GLES30.glDrawArrays(GLES30.GL_LINE_STRIP, 0, VERTEX_COUNT);
             GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, VERTEX_COUNT);
             GLES30.glDisableVertexAttribArray(ATTRIB_POSITION);
         }
